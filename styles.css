@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Mukta:wght@500&family=Nunito&family=Roboto&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+.nav{
+    position: sticky;
+    top: 0;
+    height: 10vh;
+    background-color: #292524;
+    width: 100%;
+    color: #a3a3a3;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn{
+    border: none;
+    background-color: #0284c7;
+    border-radius: 10px;
+    height: 40px;
+    width: 150px;
+    font-size: 24px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: #0ea5e9;
+    transform: translatey(2px);
+}
+
+.books{
+    display: block;
+    width: 100%;
+    height: 120vh;
+}
+
+.add-menu{
+    height: 600px;
+    width: 400px;
+    display: none;
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8vh;
+    background-color: #e7e5e4;
+    border-radius: 25px;
+}
+
+.close-btn{
+    background-color: transparent;
+    border: none;
+    margin-top: 5px;
+    margin-left: 90%;
+}
+
+.close-btn:hover{
+    transform: translatey(2px);
+    opacity:50%;
+}
