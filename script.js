@@ -7,7 +7,7 @@ let menu = false;
 
 btn.addEventListener('click', ()=>{
 
-    addMenu.setAttribute(`style`, `display: inline;`);
+    addMenu.setAttribute(`style`, `display: flex;`);
     menu = true;
 })
 
@@ -18,7 +18,7 @@ close.addEventListener('click', ()=>{
 })
 
 document.onclick = function (e){
-    if (menu === true && e.target.id !== 'false'){
+    if (menu === true && e.target.id === 'close'){
         addMenu.setAttribute(`style`, `display: none;`);
         menu = false;
     }

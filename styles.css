@@ -5,6 +5,10 @@
     font-family: 'Lora', serif;
 }
 
+body{
+    height: 120vh;
+}
+
 .nav{
     position: sticky;
     top: 0;
@@ -39,16 +43,23 @@
 }
 
 .add-menu{
-    height: 600px;
-    width: 400px;
+    height: 130vh;
+    width: 100%;
+    background-color: black;
+    opacity: 30%;
+    position: absolute;
     display: none;
     z-index: 100;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8vh;
+    justify-content: center;
+
+}
+
+.form{
+    height: 600px;
+    width: 400px;
+    z-index: 100;
+    position: sticky;
+    top: 100px;
     background-color: #e7e5e4;
     border-radius: 25px;
 }
