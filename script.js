@@ -1,4 +1,4 @@
-/*Styles*/ 
+//Buttons and modal:
 
 let btn =document.querySelector('.btn');
 let addMenu = document.querySelector('.add-menu');
@@ -26,25 +26,132 @@ document.onclick = function (e){
 
 
 
-/*Logic*/ 
+//Logic 
+let Title = document.querySelector('#title');
+let Author = document.querySelector('#author');
+let Pages = document.querySelector('#pages');
+let IsRead = document.querySelector('#read');
+let Form = document.querySelector('.form')
 let myLibrary = [];
 
-function Book(title, author, pages, readed){
+//Constructor
+function Book(title, author, pages, isRead){
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.readed = readed
+    this.isRead = isRead
 }
 
-function addBookToLibrary(book){
-    let title = 'x';
-    let author = 'y';
-    let pages = 'z';
-    let readed = 'q'
-    myLibrary.push(new Book(title, author, pages, readed))
-
-
+//Add Books:
+function addBookToLibrary(Title, Author, Pages, IsRead){
+    myLibrary.push(new Book(Title, Author, Pages, IsRead))
 }
 
-addBookToLibrary('Lord Of The Rings')
-console.log(myLibrary)
+//Submit button:
+Form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    titleVal = Title.value;
+    authorVal = Author.value;
+    pagesVal = Pages.value;
+    isReadVal = IsRead.checked;
+
+    if (pagesVal === ""){
+        pagesVal = "unknown"
+    }
+
+    addBookToLibrary(titleVal, authorVal, pagesVal, isReadVal)
+
+    console.log(titleVal)
+    console.log(authorVal)
+    console.log(pagesVal)
+    console.log(isReadVal)
+    console.log(myLibrary)
+
+    addMenu.setAttribute(`style`, `display: none;`);
+    menu = false;
+
+    Title.value="";
+    Author.value="";
+    Pages.value="";
+    IsRead.checked= false;
+
+    createBook()
+})
+
+//Generate divs:
+let container = document.querySelector('.books')
+
+
+function createBook(){
+    container.textContent = '';
+    for (let book of myLibrary){
+
+    //Creates a div and gives a class:
+    let div = document.createElement('div')
+    div.classList.add('book')
+
+    //Creates title:
+
+    let divTitle = document.createElement('h1');
+    divTitle.textContent = book.title;
+
+    //Author:
+
+    let divAuthor = document.createElement('h2')
+    divAuthor.textContent = 'by '+book.author;
+
+    //Read:
+
+    let divRead = document.createElement('h3')
+    divRead.textContent = book.isRead ? 'Completed' : 'Uncompleted';
+
+    //Pages:
+    let divPages = document.createElement('p');
+    divPages.textContent = 'Nº of Pages: '+ book.pages;
+
+    //Button Delete:
+    let buttonDelete = document.createElement('button');
+    buttonDelete.classList.add('delete')
+    buttonDelete.textContent = 'Delete';
+
+    /**/
+    buttonDelete.addEventListener('click', ()=>{
+        myLibrary.splice(myLibrary.indexOf(book),1);
+        createBook();
+    })
+    
+    
+    /**/
+
+    //Button Read:
+    let buttonRead = document.createElement('button');
+    buttonRead.classList.add('read')
+    buttonRead.textContent = book.isRead ? 'Read':'Not Read' ;
+
+    //Publish div:
+    container.appendChild(div);
+    div.appendChild(divTitle);
+    div.appendChild(divAuthor);
+    div.appendChild(divPages);
+    div.appendChild(divRead)
+    div.appendChild(buttonDelete);
+    div.appendChild(buttonRead)
+}}
+
+//Delete Books;
+/*let deleteButtons = document.querySelectorAll('.delete')
+
+deleteButtons.forEach(button=> button.addEventListener('click', (e)=> {
+    console.log(e);
+}))*/
+
+
+
+
+// Test:
+addBookToLibrary('The Pracmatic Programmer', 'Andy Hunt and Dave Thomas', '572', true)
+addBookToLibrary('Línea de Fuego', 'Arturo Pérez Reverte', '480', false)
+createBook()
+
+

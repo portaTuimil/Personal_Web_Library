@@ -5,8 +5,8 @@
     font-family: 'Lora', serif;
 }
 
-body{
-    height: 120vh;
+html, body {
+    min-height: 100%;
 }
 
 .nav{
@@ -36,37 +36,31 @@ body{
     transform: translatey(2px);
 }
 
-.books{
-    display: block;
-    width: 100%;
-    height: 120vh;
-}
-
+/*https://www.w3schools.com/howto/howto_css_modals.asp*/
 .add-menu{
-    height: 130vh;
-    width: 100%;
-    background-color: black;
-    opacity: 30%;
-    position: absolute;
-    display: none;
-    z-index: 100;
-    justify-content: center;
-
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 .form{
+    opacity: 80%;
     height: 600px;
     width: 400px;
     z-index: 100;
-    position: sticky;
-    top: 100px;
+    margin: auto;
     background-color: #e7e5e4;
     border-radius: 25px;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
 
 }
 
@@ -114,12 +108,102 @@ label{
 .close-btn{
     background-color: transparent;
     border: none;
-    margin-top: -20px;
-    margin-left: 100%;
+    margin-top: 10px;
+    margin-left: 90%;
     position: relative;
 }
 
 .close-btn:hover{
     transform: translatey(2px);
     opacity:50%;
+}
+
+/*Books*/
+.supracontainer{
+    width: 100%;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.books{
+    display: grid;
+    margin: 50px;
+    margin-bottom: 0;
+    width: 95%;
+    grid-template-columns:  repeat(3,1fr);
+    grid-gap: 25px;
+}
+
+.books > div{
+    height: 300px;
+    padding : 5%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 12px 2px #888888;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.books > div > h1{
+    font-size: 1.8rem;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row: 1;
+}
+
+.books > div > h2{
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: #081724;
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.books > div > h3{
+    font-size: 1rem;
+    position: relative;
+    color: #081724;
+    font-style: normal;
+    grid-row: 6;
+}
+
+.books > div > p{
+    font-size: 1rem;
+    text-align: end;
+    position: relative;
+    grid-row: 6;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    
+}
+
+.books > div > .delete{
+    grid-row: 4;
+    background-color: #b71c1c;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.1rem;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.books > div > .read{
+    grid-row: 4;
+    background-color: #16a34a;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.1rem;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.books > div > button:hover{
+    transform: translateX(2px) translateY(2px);
+    opacity: 90%;
+    cursor: pointer;
 }
