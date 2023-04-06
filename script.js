@@ -104,7 +104,7 @@ function createBook(){
     //Read:
 
     let divRead = document.createElement('h3')
-    divRead.textContent = book.isRead ? 'Completed' : 'Uncompleted';
+    divRead.textContent = book.isRead ? 'Status: Completed' : 'Status: On Progress';
 
     //Pages:
     let divPages = document.createElement('p');
@@ -115,19 +115,28 @@ function createBook(){
     buttonDelete.classList.add('delete')
     buttonDelete.textContent = 'Delete';
 
-    /**/
+    //Delete Sistem:
     buttonDelete.addEventListener('click', ()=>{
         myLibrary.splice(myLibrary.indexOf(book),1);
         createBook();
     })
     
-    
-    /**/
-
     //Button Read:
     let buttonRead = document.createElement('button');
     buttonRead.classList.add('read')
-    buttonRead.textContent = book.isRead ? 'Read':'Not Read' ;
+    buttonRead.textContent = 'Change Status';
+
+
+    //Change Status:
+    buttonRead.addEventListener('click', ()=>{
+        if (book.isRead){
+            book.isRead = false;
+        } else{
+            book.isRead = true;
+        }
+        createBook();
+    })
+
 
     //Publish div:
     container.appendChild(div);
@@ -139,19 +148,8 @@ function createBook(){
     div.appendChild(buttonRead)
 }}
 
-//Delete Books;
-/*let deleteButtons = document.querySelectorAll('.delete')
-
-deleteButtons.forEach(button=> button.addEventListener('click', (e)=> {
-    console.log(e);
-}))*/
-
-
-
 
 // Test:
 addBookToLibrary('The Pracmatic Programmer', 'Andy Hunt and Dave Thomas', '572', true)
 addBookToLibrary('Línea de Fuego', 'Arturo Pérez Reverte', '480', false)
 createBook()
-
-

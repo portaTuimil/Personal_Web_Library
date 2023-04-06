@@ -23,7 +23,7 @@ html, body {
 
 .btn{
     border: none;
-    background-color: #0284c7;
+    background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
     border-radius: 10px;
     height: 40px;
     width: 150px;
@@ -32,8 +32,8 @@ html, body {
 
 .btn:hover{
     cursor: pointer;
-    background-color: #0ea5e9;
-    transform: translatey(2px);
+    opacity: 90%;
+    transform: translatey(2px) translateX(2px);
 }
 
 /*https://www.w3schools.com/howto/howto_css_modals.asp*/
@@ -177,14 +177,14 @@ label{
     text-align: end;
     position: relative;
     grid-row: 6;
-    grid-column-start: 2;
+    grid-column-start: 3;
     grid-column-end: 6;
     
 }
 
 .books > div > .delete{
     grid-row: 4;
-    background-color: #b71c1c;
+    background: linear-gradient(-180deg, rgba(201,73,73,1) 0%, rgba(144,10,23,1) 100%);
     border-radius: 15px;
     border: none;
     font-size: 1.1rem;
@@ -194,7 +194,7 @@ label{
 
 .books > div > .read{
     grid-row: 4;
-    background-color: #16a34a;
+    background: linear-gradient(180deg, rgba(34,195,121,1) 0%, rgba(71,181,63,1) 100%);
     border-radius: 15px;
     border: none;
     font-size: 1.1rem;
@@ -203,7 +203,6 @@ label{
 }
 
 .books > div > button:hover{
-    transform: translateX(2px) translateY(2px);
     opacity: 90%;
     cursor: pointer;
 }
