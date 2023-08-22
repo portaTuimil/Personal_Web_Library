@@ -235,7 +235,6 @@ label{
 
 @media(max-width: 400px){
     .form{
-        height: 100vh;
         width: 100vw;
     }
 
@@ -247,5 +246,26 @@ label{
 
     h1{
         text-align: center;
+    }
+}
+
+@media(max-width: 330px){
+    .form{
+        width: 100vw;
+    }
+
+    input{
+        width: 90%;
+    }
+
+    .submit{
+        width:100px;
+    }
+}
+@media(max-height:800px){
+    .form{
+      height: 80%;
+      margin-top: 10%;
+      margin-bottom: 10%;
     }
 }
