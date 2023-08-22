@@ -9,6 +9,10 @@ html, body {
     min-height: 100%;
 }
 
+.book > *{
+    user-select: none
+}
+
 .nav{
     position: sticky;
     top: 0;
@@ -19,6 +23,8 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    min-height: 55px;
+    z-index: 100;
 }
 
 .btn{
@@ -46,7 +52,7 @@ html, body {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
 }
 
 .form{
@@ -55,7 +61,7 @@ html, body {
     width: 400px;
     z-index: 100;
     margin: auto;
-    background-color: #e7e5e4;
+    background-color: white;
     border-radius: 25px;
     display: flex;
     justify-content: space-around;
@@ -205,4 +211,41 @@ label{
 .books > div > button:hover{
     opacity: 90%;
     cursor: pointer;
+}
+
+@media(max-width: 950px){
+    .books{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width: 600px){
+    .books{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    h1, .btn{
+        font-size: 1.2rem;
+    }
+
+    .books{
+        margin: 10px;
+    }
+}
+
+@media(max-width: 400px){
+    .form{
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .btn{
+        height: 40px;
+        width: 100px;
+        font-size: 1rem;
+    }
+
+    h1{
+        text-align: center;
+    }
 }
