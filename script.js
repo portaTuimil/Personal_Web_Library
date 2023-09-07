@@ -34,7 +34,7 @@ let myLibrary = [];
 let storedNames = JSON.parse(localStorage.getItem('list'));
 myLibrary = storedNames || []   //Check for null
 let storedMaxID = JSON.parse(localStorage.getItem('ID'));
-if (storedMaxID == ''){
+if (storedMaxID == '' || storedMaxID == null){
     storedMaxID = 0;
 }
 let maxID = parseInt(storedMaxID)
