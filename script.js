@@ -31,7 +31,7 @@ let Pages = document.querySelector('#pages');
 let IsRead = document.querySelector('#read');
 let Form = document.querySelector('.form')
 let myLibrary = [];
-let storedNames = JSON.parse(localStorage.getItem('list'));
+let storedNames = JSON.parse(localStorage.getItem('list_Library_TheOdinProject'));
 myLibrary = storedNames || []   //Check for null
 let storedMaxID = JSON.parse(localStorage.getItem('ID'));
 if (storedMaxID == '' || storedMaxID == null){
@@ -55,9 +55,9 @@ function Book(title, author, pages, isRead, id){
 function addBookToLibrary(Title, Author, Pages, IsRead, id){
     myLibrary.push(new Book(Title, Author, Pages, IsRead, id))
     if(myLibrary.length !== 0){
-        localStorage.setItem('list', JSON.stringify(myLibrary));
+        localStorage.setItem('list_Library_TheOdinProject', JSON.stringify(myLibrary));
     }
-    storedNames = JSON.parse(localStorage.getItem('list'));
+    storedNames = JSON.parse(localStorage.getItem('list_Library_TheOdinProject'));
 }
 
 //Submit button:
@@ -130,7 +130,7 @@ function createBook(){
     //Delete Sistem:
     buttonDelete.addEventListener('click', ()=>{
         myLibrary.splice(myLibrary.indexOf(book),1);
-        localStorage.setItem('list', JSON.stringify(myLibrary));
+        localStorage.setItem('list_Library_TheOdinProject', JSON.stringify(myLibrary));
         createBook();
     })
     
@@ -147,7 +147,7 @@ function createBook(){
         } else{
             book.isRead = true;
         }
-        localStorage.setItem('list', JSON.stringify(myLibrary));
+        localStorage.setItem('list_Library_TheOdinProject', JSON.stringify(myLibrary));
         createBook();
     })
 
