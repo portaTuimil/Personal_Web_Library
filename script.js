@@ -172,6 +172,7 @@ function changeOrder(from, to) {
     myLibrary[firstID] = second;
     myLibrary[secondID] = first;
     createBook()
+    localStorage.setItem('list_Library_TheOdinProject', JSON.stringify(myLibrary));
 }
 
 function findIndexForID(ID){
